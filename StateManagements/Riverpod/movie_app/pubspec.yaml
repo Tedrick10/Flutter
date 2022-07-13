@@ -36,7 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # Flutter External Libraries
+  ## State Managements
   flutter_riverpod: 
+  ## HTTP
+  dio: 
 
 dev_dependencies:
   flutter_test:
