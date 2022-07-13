@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Pages
 import './pages/home_page.dart';
 
+// Source: YouTube/RobertBrunhage
 // Main Function
 void main() {
   runApp(
