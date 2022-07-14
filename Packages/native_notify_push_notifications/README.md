@@ -1,4 +1,4 @@
-# native_notify_push_notifications
+# native_notify_push_notifications_app
 This is the example project of push notifications with native_notify packages.
 
 ## Getting Started
