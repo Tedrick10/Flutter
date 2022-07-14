@@ -37,6 +37,8 @@ class MovieService {
 
     final results = List<Map<String, dynamic>>.from(response.data["results"]);
 
+    print("Results: $results");
+
     List<MovieModel> moviesList = results
         .map((movieData) => MovieModel.fromJson(movieData))
         .toList(growable: false);
