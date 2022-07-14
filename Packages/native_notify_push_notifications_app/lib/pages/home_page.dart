@@ -20,7 +20,8 @@ class HomePage extends StatelessWidget {
       ),
       body: const SafeArea(
           child: Center(
-        child: Text("This is home page."),
+        child: Text(
+            "This is home page of testing push notifications with native_notify package."),
       )),
     );
   }
