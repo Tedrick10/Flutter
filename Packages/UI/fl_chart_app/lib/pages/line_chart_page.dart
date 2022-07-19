@@ -25,7 +25,25 @@ class LineChartPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
-            children: [],
+            children: [
+              LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: 11,
+                  minY: 0,
+                  maxY: 6,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: [
+                        const FlSpot(0, 3),
+                      ],
+                    )
+                  ],
+                ),
+                swapAnimationDuration: const Duration(milliseconds: 150),
+                swapAnimationCurve: Curves.linear,
+              ),
+            ],
           ),
         ),
       ),
