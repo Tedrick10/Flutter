@@ -109,21 +109,20 @@ class PurchaseProvider with ChangeNotifier {
 
   void addInvoiceNo(String newInvoiceNo) {
     DateTime dateTime = DateTime.now();
-    String date = dateTime.day.toString() +
-        "/" +
-        dateTime.month.toString() +
-        "/" +
-        dateTime.year.toString();
+    String date = "${dateTime.day}/${dateTime.month}/${dateTime.year}";
     String quantity = "0";
     String amount = "0";
 
-    TotalDataModel totalDataModel = TotalDataModel(
+    DataModel dataModel = DataModel(
       date: date,
       invoiceNo: newInvoiceNo,
+      stockCode: dateTime.microsecond.toString(),
+      description: "",
       quantity: quantity,
+      price: "0",
       amount: amount,
     );
-    _totalDataList.add(totalDataModel);
+    _dataList.add(dataModel);
     notifyListeners();
   }
 
