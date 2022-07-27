@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
     // Returning Widgets
     return MaterialApp(
       title: "CRUD Testing",
+      debugShowCheckedModeBanner: false,
       navigatorObservers: [FlutterSmartDialog.observer],
       builder: FlutterSmartDialog.init(),
       initialRoute: HomePage.routeName,
