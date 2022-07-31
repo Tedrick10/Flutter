@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "496256509225",
+    "project_id": "videocrud-6c1b5",
+    "storage_bucket": "videocrud-6c1b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496256509225:android:5374342779e6131792c338",
+        "android_client_info": {
+          "package_name": "com.firebase_databases.video_crud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496256509225-h2eftqp9omkqbs1atqeujintsul5j77n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0ev10rIvgwfOudML1QfbXfJT3-qO2Ovs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496256509225-h2eftqp9omkqbs1atqeujintsul5j77n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
