@@ -11,7 +11,7 @@ import '../../states/counter_state.dart';
 import '../../controllers/counter_controller.dart';
 
 // Widgets
-import '../widgets/counter_button_widget.dart';
+import './widgets/counter_button_widget.dart';
 
 // CounterPage: ConsumerWidget Class
 class CounterPage extends ConsumerWidget {

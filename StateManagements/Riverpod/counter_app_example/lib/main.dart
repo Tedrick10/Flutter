@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Pages
-import './views/pages/counter_page.dart';
+import './pages/counter_page.dart';
 
 // Main Function
 void main() {
