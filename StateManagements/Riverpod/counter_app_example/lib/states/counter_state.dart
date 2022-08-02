@@ -14,4 +14,8 @@ class CounterState extends StateNotifier<int> {
   void increment() {
     state++;
   }
+
+  void reset() {
+    state = 0;
+  }
 }

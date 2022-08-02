@@ -51,6 +51,11 @@ class CounterPage extends ConsumerWidget {
                 ),
                 const SizedBox(width: 10.0),
                 CounterButtonWidget(
+                  function: counterState.reset,
+                  iconData: Icons.restore,
+                ),
+                const SizedBox(width: 10.0),
+                CounterButtonWidget(
                   function: counterState.increment,
                   iconData: Icons.add,
                 ),
