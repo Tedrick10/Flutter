@@ -29,6 +29,9 @@ dependencies:
   random_string: ^2.3.1 # To generate barcode data
   barcode_widget: ^2.0.2 # To generate barcode widget
   flutter_barcode_scanner: ^2.0.0 # To scan the barcode and read the data
+  hive:  # To store the barcode data
+  flutter_smart_dialog: ^4.5.3+8 # To show the dialog
+  path_provider: 
 
 dev_dependencies:
   flutter_test:

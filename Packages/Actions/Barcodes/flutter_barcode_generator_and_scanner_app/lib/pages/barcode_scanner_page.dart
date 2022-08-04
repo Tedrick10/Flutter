@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 // Flutter: External Libraries
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 
 // Widgets
 import '../widgets/common/scaffold_widget.dart';
@@ -38,11 +39,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
       );
 
       setState(() {
-        if (barCode == "-1") {
-          barCodeData = "It is canceled to scan.";
-        } else {
-          barCodeData = "Barcode Data: $barCode";
-        }
+        barCodeData = barCode;
       });
     } on PlatformException {
       setState(() {
@@ -62,12 +59,26 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Text("Please scan the barcode."),
+            const SizedBox(height: 10.0),
             ElevatedButton(
               onPressed: _scanTheCode,
               child: const Text("Scan The Code"),
             ),
             const SizedBox(height: 10.0),
-            Text(barCodeData),
+            if (barCodeData.trim().isNotEmpty && barCodeData != "-1") ...[
+              Text(barCodeData),
+              const SizedBox(height: 10.0),
+              BarcodeWidget(
+                data: barCodeData,
+                barcode: Barcode.code128(),
+                width: 200.0,
+                height: 50.0,
+                errorBuilder: (context, error) => Center(
+                  child: Text(error),
+                ),
+              ),
+            ],
           ],
         ),
       ),

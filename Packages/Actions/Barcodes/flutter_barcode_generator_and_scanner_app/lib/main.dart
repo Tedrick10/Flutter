@@ -1,9 +1,15 @@
 // Flutter: Existing Libraries
 import 'package:flutter/material.dart';
 
+// Flutter: External Libraries
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
+
 // Pages
 import './pages/home_page.dart';
-import './pages/barcode_generator_page.dart';
+import './pages/random_barcode_generator_page.dart';
+import './pages/specific_barcode_generator_page.dart';
 import './pages/barcode_scanner_page.dart';
 
 // Main: Index Function
@@ -12,10 +18,35 @@ void main() {
   runApp(const MyApp());
 }
 
-// MyApp: StatelessWidget Class
-class MyApp extends StatelessWidget {
+// MyApp: StatefulWidget Class
+class MyApp extends StatefulWidget {
   // Constructor
   const MyApp({Key? key}) : super(key: key);
+
+  // CreateState: Override Class Method
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+// _MyAppState: Private State Class
+class _MyAppState extends State<MyApp> {
+  // Lifecycle Hook: Class Methods
+  @override
+  void initState() {
+    openHive();
+    doSomething();
+    super.initState();
+  }
+
+  // Action: Class Methods
+  Future<void> openHive() async {
+    await Hive.openBox("barcode-box");
+  }
+
+  void doSomething() async {
+    final documentDirectory = await getApplicationDocumentsDirectory();
+    Hive.init(documentDirectory.path);
+  }
 
   // Build: Override Class Method
   @override
@@ -24,10 +55,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Barcode Generator & Scanner Application",
       debugShowCheckedModeBanner: false,
+      navigatorObservers: [FlutterSmartDialog.observer],
+      builder: FlutterSmartDialog.init(),
       initialRoute: HomePage.routeName,
       routes: {
         HomePage.routeName: (_) => const HomePage(),
-        BarcodeGeneratorPage.routeName: (_) => BarcodeGeneratorPage(),
+        RandomBarcodeGeneratorPage.routeName: (_) =>
+            RandomBarcodeGeneratorPage(),
+        SpecificBarcodeGeneratorPage.routeName: (_) =>
+            const SpecificBarcodeGeneratorPage(),
         BarcodeScannerPage.routeName: (_) => const BarcodeScannerPage(),
       },
     );
