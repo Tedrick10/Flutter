@@ -24,6 +24,7 @@ class ScaffoldWidget extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
+        centerTitle: true,
         title: Text(title),
       ),
       body: SafeArea(

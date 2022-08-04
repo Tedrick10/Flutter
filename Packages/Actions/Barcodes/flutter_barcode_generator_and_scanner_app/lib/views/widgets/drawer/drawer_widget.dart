@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../pages/home_page.dart';
 import '../../pages/random_barcode_generator_page.dart';
 import '../../pages/specific_barcode_generator_page.dart';
+import '../../pages/barcode_saver_page.dart';
 import '../../pages/barcode_scanner_page.dart';
 
 // Widgets
@@ -30,13 +31,17 @@ class DrawerWidget extends StatelessWidget {
             title: HomePage.title,
             routeName: HomePage.routeName,
           ),
+          // DrawerCellWidget(
+          //   title: RandomBarcodeGeneratorPage.title,
+          //   routeName: RandomBarcodeGeneratorPage.routeName,
+          // ),
+          // DrawerCellWidget(
+          //   title: SpecificBarcodeGeneratorPage.title,
+          //   routeName: SpecificBarcodeGeneratorPage.routeName,
+          // ),
           DrawerCellWidget(
-            title: RandomBarcodeGeneratorPage.title,
-            routeName: RandomBarcodeGeneratorPage.routeName,
-          ),
-          DrawerCellWidget(
-            title: SpecificBarcodeGeneratorPage.title,
-            routeName: SpecificBarcodeGeneratorPage.routeName,
+            title: BarcodeSaverPage.title,
+            routeName: BarcodeSaverPage.routeName,
           ),
           DrawerCellWidget(
             title: BarcodeScannerPage.title,

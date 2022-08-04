@@ -5,17 +5,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
+
+// Providers
+import './controllers/providers/barcode_provider.dart';
 
 // Pages
-import './pages/home_page.dart';
-import './pages/random_barcode_generator_page.dart';
-import './pages/specific_barcode_generator_page.dart';
-import './pages/barcode_scanner_page.dart';
+import './views/pages/home_page.dart';
+import './views/pages/random_barcode_generator_page.dart';
+import './views/pages/specific_barcode_generator_page.dart';
+import './views/pages/barcode_saver_page.dart';
+import './views/pages/barcode_scanner_page.dart';
 
 // Main: Index Function
 void main() {
   // Running Application
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => BarcodeProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 // MyApp: StatefulWidget Class
@@ -64,6 +76,7 @@ class _MyAppState extends State<MyApp> {
             RandomBarcodeGeneratorPage(),
         SpecificBarcodeGeneratorPage.routeName: (_) =>
             const SpecificBarcodeGeneratorPage(),
+        BarcodeSaverPage.routeName: (_) => const BarcodeSaverPage(),
         BarcodeScannerPage.routeName: (_) => const BarcodeScannerPage(),
       },
     );

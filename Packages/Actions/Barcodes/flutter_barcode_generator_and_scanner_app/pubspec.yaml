@@ -31,7 +31,8 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0 # To scan the barcode and read the data
   hive:  # To store the barcode data
   flutter_smart_dialog: ^4.5.3+8 # To show the dialog
-  path_provider: 
+  path_provider: # To get the path
+  provider: # To use the state management
 
 dev_dependencies:
   flutter_test:
