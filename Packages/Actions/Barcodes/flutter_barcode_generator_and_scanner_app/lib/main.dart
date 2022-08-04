@@ -23,10 +23,11 @@ class MyApp extends StatelessWidget {
     // Returning Widgets
     return MaterialApp(
       title: "Flutter Barcode Generator & Scanner Application",
+      debugShowCheckedModeBanner: false,
       initialRoute: HomePage.routeName,
       routes: {
         HomePage.routeName: (_) => const HomePage(),
-        BarcodeGeneratorPage.routeName: (_) => const BarcodeGeneratorPage(),
+        BarcodeGeneratorPage.routeName: (_) => BarcodeGeneratorPage(),
         BarcodeScannerPage.routeName: (_) => const BarcodeScannerPage(),
       },
     );

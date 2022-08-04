@@ -17,9 +17,19 @@ class DrawerCellWidget extends StatelessWidget {
   // Build: Override Class Method
   @override
   Widget build(BuildContext context) {
+    // Final: Method Properties
+    final String currentRoute = ModalRoute.of(context)!.settings.name!;
+    final bool isCurrentRoute = currentRoute == routeName;
+
     // Returning Widgets
     return ListTile(
-      title: Text(title),
+      tileColor: (isCurrentRoute) ? Colors.black : Colors.white,
+      title: Text(
+        title,
+        style: TextStyle(
+          color: (isCurrentRoute) ? Colors.white : Colors.black,
+        ),
+      ),
       onTap: () => Navigator.of(context).pushReplacementNamed(routeName),
     );
   }

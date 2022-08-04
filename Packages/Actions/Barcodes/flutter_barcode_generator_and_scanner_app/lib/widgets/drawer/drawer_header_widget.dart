@@ -17,8 +17,17 @@ class DrawerHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Returning Widgets
     return DrawerHeader(
-      child: Center(
-        child: Text(drawerHeaderTitle),
+      padding: const EdgeInsets.all(0.0),
+      margin: const EdgeInsets.all(0.0),
+      child: Container(
+        color: Colors.lightBlue,
+        alignment: Alignment.center,
+        child: Text(
+          drawerHeaderTitle,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }

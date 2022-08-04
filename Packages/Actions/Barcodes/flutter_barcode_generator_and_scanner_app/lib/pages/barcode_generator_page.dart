@@ -1,6 +1,10 @@
 // Flutter: Existing Libraries
 import 'package:flutter/material.dart';
 
+// Flutter: External Libraries
+import 'package:random_string/random_string.dart';
+import 'package:barcode_widget/barcode_widget.dart';
+
 // Widgets
 import '../widgets/common/scaffold_widget.dart';
 
@@ -11,16 +15,38 @@ class BarcodeGeneratorPage extends StatelessWidget {
   static const String routeName = "/barcode-generator";
 
   // Constructor
-  const BarcodeGeneratorPage({Key? key}) : super(key: key);
+  BarcodeGeneratorPage({Key? key}) : super(key: key);
+
+  // Final: Class Properties
+  final String randomNumberString = randomNumeric(13);
 
   // Build: Override Class Method
   @override
   Widget build(BuildContext context) {
+    // Debugging
+    print("Random Numeric String: $randomNumberString");
+
     // Returning Widgets
     return ScaffoldWidget(
       title: title,
       bodyWidget: Center(
-        child: Text("This is barcode generator page."),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Random Numeric String: $randomNumberString"),
+            const SizedBox(height: 10.0),
+            BarcodeWidget(
+              data: randomNumberString,
+              barcode: Barcode.code128(),
+              width: 200.0,
+              height: 50.0,
+              errorBuilder: (context, error) => Center(
+                child: Text(error),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
