@@ -77,8 +77,12 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
           usage: barcodeModel.usage + 1,
           dateTime: barcodeModel.dateTime,
         );
-        barcodeProvider.updateBarcode(updatedBarcodeModel);
-        SmartDialog.showToast("Updated $barCodeData successfully!");
+        bool isUpdated = barcodeProvider.updateBarcode(updatedBarcodeModel);
+        if (isUpdated) {
+          SmartDialog.showToast("Updated $barCodeData successfully!");
+        } else {
+          SmartDialog.showToast("Updated $barCodeData failed!");
+        }
       }
     } else {
       SmartDialog.showToast("There is no same barcode in list.");

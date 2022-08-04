@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 // Widgets
 import '../widgets/common/scaffold_widget.dart';
@@ -48,6 +49,22 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         barcodesList = barcodes;
       });
+    }
+  }
+
+  // Action: Class Methods
+  void _deleteBarcode(String data) {
+    // Final: Class Properties
+    final BarcodeProvider barcodeProvider = Provider.of<BarcodeProvider>(
+      context,
+      listen: false,
+    );
+    bool isDeleted = barcodeProvider.deleteBarcode(data);
+
+    if (isDeleted) {
+      SmartDialog.showToast("Successfully deleted $data.");
+    } else {
+      SmartDialog.showToast("Fail deleted $data.");
     }
   }
 
@@ -122,12 +139,21 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
+                      const VerticalDivider(color: Colors.white),
+                      Container(
+                        width: 100.0,
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "Delete",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 if (barcodesList.isEmpty)
                   Container(
-                    width: 565.0,
+                    width: 665.0,
                     height: 500.0,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -146,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 if (barcodesList.isNotEmpty)
                   Container(
-                    width: 565.0,
+                    width: 680.0,
                     height: 500.0,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
@@ -156,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           for (BarcodeModel barcode in barcodesList) ...[
                             Container(
-                              width: 565.0,
+                              width: 680.0,
                               height: 75.0,
                               alignment: Alignment.center,
                               child: Row(
@@ -209,12 +235,23 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   const VerticalDivider(color: Colors.white),
                                   Container(
-                                    width: 70.0,
+                                    width: 100.0,
                                     alignment: Alignment.center,
                                     child: Text(
                                       "${barcode.dateTime.day}/${barcode.dateTime.month}/${barcode.dateTime.year}",
                                       style:
                                           const TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                  const VerticalDivider(color: Colors.white),
+                                  Container(
+                                    width: 90.0,
+                                    alignment: Alignment.center,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        _deleteBarcode(barcode.data);
+                                      },
+                                      icon: const Icon(Icons.delete),
                                     ),
                                   ),
                                 ],

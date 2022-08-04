@@ -53,10 +53,9 @@ class BarcodeProvider with ChangeNotifier {
     return canEditData;
   }
 
-  bool deleteBarcode(BarcodeModel deletedBarcode) {
+  bool deleteBarcode(String data) {
     bool canDeleteData = false;
-    int index = _barcodesList
-        .indexWhere((barcode) => barcode.data == deletedBarcode.data);
+    int index = _barcodesList.indexWhere((barcode) => barcode.data == data);
 
     if (index >= 0) {
       _barcodesList.removeAt(index);
