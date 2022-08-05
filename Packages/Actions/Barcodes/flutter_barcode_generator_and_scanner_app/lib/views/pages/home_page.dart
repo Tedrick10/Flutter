@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 if (barcodesList.isEmpty)
                   Container(
-                    width: 665.0,
+                    width: 680.0,
                     height: 500.0,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
