@@ -32,6 +32,9 @@ class HomePage extends StatefulWidget {
 
 // _HomePageState: State Class
 class _HomePageState extends State<HomePage> {
+  // Final: Class Properties
+  final GlobalKey<ScaffoldState> drawerKey = GlobalKey<ScaffoldState>();
+
   // Changable: Class Properties
   List<String> barcodesList = [];
 
@@ -161,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: const Center(
                       child: Text(
-                        "You need to add the data first.",
+                        "You need to add the data first with barcode saver.",
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
